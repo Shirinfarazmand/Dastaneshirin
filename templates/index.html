@@ -1,0 +1,72 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="{% static 'style.css' %}">
+
+
+</head>
+<body>
+<header class="header">  
+    
+    <nav class="navbar">
+        <ul>
+            <li><a href="/"> Home</a></li>
+            <li class="dropdown"><span>writers &#x25BE;</span>
+                <ul >
+                    <li><a href="3">Anton Chekhov</a></li>
+                    <li><a href="#">Sherman Alexie</a></li>
+                    <li><a href="#">Alice Munro</a></li>
+                </ul>
+            </li>
+            <li><a href="about"> About Us</a></li>
+            <li><a href="contact"> Contact</a></li>
+            <li><a href="login"> Login/Sign Up</a></li>
+            <li><a href="logout"> Log Out</a></li>
+
+            
+
+        </ul>
+    
+    </nav> 
+    
+    <div class="title" >
+        <h1>Dastane Shirin</h1>
+    </div>
+    
+</header>
+<div class="btn">
+    <button onclick="darkmood()" class="button">dark mood</button>
+    <button onclick="lightmood()" class="button">light mood</button>
+    </div>
+
+<div class="leftcolumn">
+{% for post in posts reversed %}
+<div class="card">
+    <a style="text-decoration: none; color:black;" href="/post/{{post.id}}">
+    {% if post.img %}
+    <img src="{{ post.img.url}}" alt="{{ post.title }}">
+    {% endif %}
+    <h2>{{post.title}}</h2> 
+    <h5>{{post.created_date}}</h5>
+    <p>{{post.details|truncatewords:20}}</p>
+    </a>
+</div>
+{% endfor %}
+</div>
+<div class="rightcolumn">
+    <div class="sidebar">
+        <img src="{%static 'img\wrieters.jpg'%}">
+        <h5>You can read and listen your favorite stores here.</h5>
+</div>
+</div>
+
+
+
+
+
+<script src="{% static 'script.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+
+
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="{% static 'style.css' %}">
+
+
+</head>
+<body>
+    
+<header class="header">  
+    
+    
+        
+    <nav class="navbar">
+        <ul>
+            <li><a href="/"> Home</a></li>
+            <li class="dropdown"><span>writers &#x25BE;</span>
+                <ul >
+                    <li><a href="#">Anton Chekhov</a></li>
+                    <li><a href="#">Sherman Alexie</a></li>
+                    <li><a href="#">Alice Munro</a></li>
+                </ul>
+            </li>
+            <li><a href="about"> About Us</a></li>
+            <li><a href="contact"> Contact</a></li>
+            <li><a href="login"> Login/Sign Up</a></li>
+            <li><a href="logout"> Log Out</a></li>
+
+            
+
+        </ul>
+    
+    </nav> 
+    <div class="title" >
+        <h1>Dastane Shirin</h1>
+    </div>
+    
+
+</header>
+    <div class="btn">
+        <button onclick="darkmood()" class="button">dark mood</button>
+        <button onclick="lightmood()" class="button">light mood</button>
+    </div>
+
+
+{% for message in messages %}
+<h5 class="message">{{message}}</h5>
+{% endfor %}
+
+<form method="POST" action="login" class="form">
+    {% csrf_token %}
+<h2>Login</h2><br>
+    <h5>Username:</h5>
+    <input type="text" name="username">
+    <h5>Password:</h5>
+    <input type="password" name="password"><br><br><br>
+    <button type="submit" class="button">Submit</button>
+    <a href="register" class="button">Sign Up</a>
+    
+</form>
+
+
+
+
+<script src="{% static 'script.js' %}"></script>
+</body>
+</html>

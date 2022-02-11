@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="{% static 'style.css' %}">
+
+
+</head>
+<body>
+<header class="header">
+    
+    
+    
+    <nav class="navbar">
+        <ul>
+            <li><a href="/"> Home</a></li>
+            <li class="dropdown"><span>writers &#x25BE;</span>
+                <ul >
+                    <li><a href="#">Anton Chekhov</a></li>
+                    <li><a href="#">Sherman Alexie</a></li>
+                    <li><a href="#">Alice Munro</a></li>
+                </ul>
+            </li>
+            <li><a href="about"> About Us</a></li>
+            <li><a href="contact"> Contact</a></li>
+            <li><a href="login"> Login/Sign Up</a></li>
+            <li><a href="logout"> Log Out</a></li>
+
+            
+
+        </ul>
+    
+    </nav> 
+    <div class="title" >
+        <h1>Dastane Shirin</h1>
+    </div>
+    
+    
+
+</header>
+
+    <div class="btn">
+        <button onclick="darkmood()" class="button">dark mood</button>
+        <button onclick="lightmood()" class="button">light mood</button>
+    </div>
+
+
+        <div class="card2"> 
+            <h2>Contact</h2>
+            <h4>Contact us directly if you have any questions</h4>
+            <p>
+                Please write your name, email address and <br> a message below if you have any questions. <br>
+                One of our staff members will be happy to contact <br> you directly and answer your questions as soon as possible. 
+            </p>
+        </div> 
+		<form method="post" class="form">
+        {% csrf_token %}
+            {{form.as_p}}
+            <button type="submit">Submit</button>
+        </form>
+    
+
+<script src="{% static 'script.js' %}"></script>
+</body>
+</html>
